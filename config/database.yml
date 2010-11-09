@@ -1,11 +1,11 @@
 development:
    adapter: postgresql
-   database: cor_development
+   database: gmodnatdiv_development
    template: template0
    encoding: utf8
    host: localhost
-   username: root
-   password:
+   username: postgres
+   password: postg1
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -15,14 +15,14 @@ test: &TEST
   adapter: postgresql
   template: template0
   encoding: utf8
-  database: cor_test
+  database: gmodnatdiv_test
   host: localhost
   username: root
   password:
 
 production:
   adapter: postgresql
-  database: cor_production
+  database: gmodnatdiv_production
   host: localhost
   username: root
   password:
