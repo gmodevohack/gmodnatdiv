@@ -40,5 +40,5 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
 end
 
-ActiveRecord::Base.pluralize_table_names = false
-ActiveRecord::Base.primary_key_prefix_type = :table_name_with_underscore
+ ActiveRecord::Base.pluralize_table_names = false
+ ActiveRecord::Base.primary_key_prefix_type = :table_name_with_underscore
