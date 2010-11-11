@@ -9,7 +9,6 @@ class Cvterm < ActiveRecord::Base
   has_many :cvterm_dbxrefs , :foreign_key => :cvterm_id
   has_many :cvtermprops , :foreign_key => :cvterm_id
   has_many :cvtermsynonyms , :foreign_key => :cvterm_id
-  has_many :dbxrefs 
   has_many :environment_cvterms , :foreign_key => :cvterm_id
   has_many :environments 
   has_many :expression_cvterms , :foreign_key => :cvterm_id
@@ -32,6 +31,7 @@ class Cvterm < ActiveRecord::Base
   has_and_belongs_to_many :cvtermpaths, :class_name => "Cvterm", :join_table => "cvtermpath", :foreign_key => "object_id", :association_foreign_key => "subject_id"
 
   named_scope :ordered_by_number_of_phenotypes, :joins => :phenotype_cvterms, :select => "cvterm.*, COUNT(phenotype_cvterm.phenotype_id) as phenotype_count", :group => Cvterm.column_names.collect{|column_name| "cvterm.#{column_name}"}.join(","), :order => "phenotype_count DESC"
+  named_scope :with_obo_id, lambda {|*args| {:joins => "JOIN dbxref ON (cvterm.dbxref_id = dbxref.dbxref_id) JOIN db ON (dbxref.db_id = db.db_id)", :conditions => ["db.name = ? AND dbxref.accession = ?", args[0], args[1]]}}
 
   set_table_name "cvterm" # habtm requires set_table_name to be underneath habtm declaration
   set_primary_key "cvterm_id"
