@@ -9,6 +9,8 @@ class Cvterm < ActiveRecord::Base
   has_many :cvterm_dbxrefs , :foreign_key => :cvterm_id
   has_many :cvtermprops , :foreign_key => :cvterm_id
   has_many :cvtermsynonyms , :foreign_key => :cvterm_id
+  has_many :parents, :foreign_key => :subject_id, :class_name => "CvtermRelationship"
+  has_many :children, :foreign_key => :object_id, :class_name => "CvtermRelationship"
   has_many :environment_cvterms , :foreign_key => :cvterm_id
   has_many :environments 
   has_many :expression_cvterms , :foreign_key => :cvterm_id
@@ -23,7 +25,7 @@ class Cvterm < ActiveRecord::Base
   has_many :phenotype_comparison_cvterms , :foreign_key => :cvterm_id
   has_many :phenotype_comparisons 
   has_many :phenotype_cvterms , :foreign_key => :cvterm_id
-  has_many :phenotypes 
+  has_many :phenotypes, :through => :phenotype_cvterms
   has_many :pubs 
   has_many :stock_cvterms , :foreign_key => :cvterm_id
   has_many :stocks
