@@ -14,7 +14,7 @@ class Phenotype < ActiveRecord::Base
   has_many :phenstatements, :foreign_key => :phenotype_id
   has_many :pubs # has_many :nd_assay_phenotypes # TODO: doesn't exist in current schema?
 
-  named_scope :ordered_by_number_of_cvterms, :joins => :phenotype_cvterms, :select => "phenotype.*, COUNT(phenotype_cvterm.cvterm_id) as cvterm_count", :group => Phenotype.column_names.collect{|column_name| "phenotype.#{column_name}"}.join(","), :order => "cvterm_count ASC"
+  named_scope :ordered_by_number_of_cvterms, :joins => :phenotype_cvterms, :select => "phenotype.*, COUNT(phenotype_cvterm.cvterm_id) as cvterm_count", :group => Phenotype.column_names.collect{|column_name| "phenotype.#{column_name}"}.join(","), :order => "cvterm_count DESC"
 
   named_scope :limit, :limit => 100
 

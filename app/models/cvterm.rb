@@ -24,14 +24,17 @@ class Cvterm < ActiveRecord::Base
   has_many :phenotype_comparison_cvterms , :foreign_key => :cvterm_id
   has_many :phenotype_comparisons 
   has_many :phenotype_cvterms , :foreign_key => :cvterm_id
-  has_many :phenotypes 
+  has_many :phenotypes, :through => :phenotype_cvterms 
   has_many :pubs 
   has_many :stock_cvterms , :foreign_key => :cvterm_id
   has_many :stocks
   has_and_belongs_to_many :cvterms, :class_name => "Cvterm", :join_table => "cvterm_relationship", :foreign_key => "object_id", :association_foreign_key => "subject_id"
   has_and_belongs_to_many :cvtermpaths, :class_name => "Cvterm", :join_table => "cvtermpath", :foreign_key => "object_id", :association_foreign_key => "subject_id"
 
-  named_scope :ordered_by_number_of_phenotypes, :joins => :phenotype_cvterms, :select => "cvterm.*, COUNT(phenotype_cvterm.phenotype_id) as phenotype_count", :group => Cvterm.column_names.collect{|column_name| "cvterm.#{column_name}"}.join(","), :order => "phenotype_count DESC"
+  named_scope :ordered_by_number_of_phenotypes, :joins => :phenotype_cvterms, :select => "cvterm.*, COUNT(phenotype_cvterm.phenotype_id) as phenotype_count", :group => Cvterm.column_names.collect{|column_name| "cvterm.#{column_name}"}.join(","), :order => "phenotype_count ASC"
+
+ named_scope :limit, :limit => 100
+
 
   set_table_name "cvterm" # habtm requires set_table_name to be underneath habtm declaration
   set_primary_key "cvterm_id"
