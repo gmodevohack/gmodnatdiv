@@ -37,14 +37,11 @@ class VizController < ApplicationController
   end
   
   def experiments_for_term(term, relation)
-    #this_term_count = term.phenotypes.count
-    this_term_phenotypes = term.phenotypes
+    this_term_count = term.phenotypes.count
     term.children.by_relation(relation).each do |child_rel|
-      #this_term_count += experiments_for_term(child_rel.child, relation)
-      this_term_phenotypes.push(experiments_for_term(child_rel.child, relation))
+      this_term_count += experiments_for_term(child_rel.child, relation)
     end
-    #this_term_count
-    this_term_phenotypes
+    this_term_count
   end
   
 
