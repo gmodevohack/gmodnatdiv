@@ -19,7 +19,9 @@ class VizController < ApplicationController
   def auto_complete_for_stock_name
     @stocks =  Stock.find(:all, :conditions => ['name LIKE ?', "%#{params[:stock][:name]}%"])
     @tag_id_str = params[:tag_id]
-    render :inline => "<%= auto_complete_result_with_ids(@stocks, 'name', @tag_id_str) -%>"
+      render :inline => "<%= auto_complete_result_with_ids(@stocks,
+      'format_obj_for_auto_complete', @tag_id_str) %>" 
   end
+
 
 end
