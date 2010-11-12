@@ -2,14 +2,17 @@
 
 == Background
 
-This code was initially written at the GMOD Evolutionary Biology Hackathon 2010 at the National Evolutionary Synthesis Center (NESCent, National Science Foundation Grant # EF-0905606 ) in Durham, NC.
+This code was initially written at the GMOD Evolutionary Biology Hackathon 2010 at the National Evolutionary Synthesis Center (NESCent, National Science Foundation Grant # EF-0905606 ) in Durham, NC.  The hackathon webpage is here[https://github.com/gmodevohack/gmodnatdiv].
 
 == Purpose
 
-The initial goal was to add the nd modules from CHADO to the ActiveRecord layer.  Those models are now present here, but without tests. 
+The initial goal was to add the nd modules from Chado [http://gmod.org/wiki/Chado] to the ActiveRecord layer in COR[http://rubyforge.org/projects/cor/]. Those models are now present here, but without tests.
 
 == Caveats
 
+The ActiveRecord models include methods that are present here but not generated via the magic_chado generator in COR[http://rubyforge.org/projects/cor/].
 
+== Other goodness
 
+A simple visualization demonstration is included, using the protovis[http://vis.stanford.edu/protovis/] library.  See the badly-non-Railsesqe code in viz_controller.rb.   
 
