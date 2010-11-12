@@ -25,11 +25,7 @@ class Cvterm < ActiveRecord::Base
   has_many :phenotype_comparison_cvterms , :foreign_key => :cvterm_id
   has_many :phenotype_comparisons 
   has_many :phenotype_cvterms , :foreign_key => :cvterm_id
-<<<<<<< HEAD
   has_many :phenotypes, :through => :phenotype_cvterms 
-=======
-  has_many :phenotypes, :through => :phenotype_cvterms
->>>>>>> 78427d104d5913df9f51fc073470190b920b1cf7
   has_many :pubs 
   has_many :stock_cvterms , :foreign_key => :cvterm_id
   has_many :stocks
