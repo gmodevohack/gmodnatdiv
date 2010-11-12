@@ -1,0 +1,15 @@
+= Overview
+
+== Background
+
+This code was initially written at the GMOD Evolutionary Biology Hackathon 2010 at the National Evolutionary Synthesis Center (NESCent, National Science Foundation Grant # EF-0905606 ) in Durham, NC.
+
+== Purpose
+
+The initial goal was to add the nd modules from CHADO to the ActiveRecord layer.  Those models are now present here, but without tests. 
+
+== Caveats
+
+
+
+
