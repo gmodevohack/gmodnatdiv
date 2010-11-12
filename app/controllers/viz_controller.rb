@@ -6,9 +6,9 @@ class VizController < ApplicationController
   end
 
   def plot_bubble
-    pieces = params[:id].split(":")
-    @term = Cvterm.with_obo_id(pieces[0], pieces[1]).first
-    @associations = ActiveSupport::JSON.encode(experiment_associations_data(@term))
+ #  pieces = params[:id].split(":")
+ #  @term = Cvterm.with_obo_id(pieces[0], pieces[1]).first
+ #  @associations = ActiveSupport::JSON.encode(experiment_associations_data(@term))
     render :action => 'plots/plot_bubble'
   end
 

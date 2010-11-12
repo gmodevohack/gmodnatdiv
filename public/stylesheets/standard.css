@@ -12,11 +12,6 @@ body {
 }
 
 #fig {
-  position: relative;
-  margin: auto;
-
-  width: 50px;
-  height: 50px;
 }
 
 #header {
@@ -27,10 +22,10 @@ body {
   font-size: larger;
   border-bottom: 1px solid silver;
   margin-bottom: 0.2em;
+  clear: both;
 }
 
 div.header_category {
   border-bottom: 1px solid silver;
   font-weight:bold;
 }
-
