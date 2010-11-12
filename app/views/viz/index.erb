@@ -1,10 +1,16 @@
-    <div id="center"><div id="fig">
+<div style="padding: 1em;">
 
-<a href="multivar_scatter">multivariate scatter plot</a>
+  Visualize some data 
 
-<a href="viz/plot_bubble">bubble plot for categorical data</a>
+  <ul> 
+    <li> <%= link_to 'bubbles', :action => :plot_bubble, :controller => :viz -%> </li>
+    <li> <%= link_to 'multivar', :action => :plot_multivar, :controller => :viz -%> </li>
+
+    <li> <%= link_to 'form test', :action => :form_test, :controller => :viz -%> </li>
+  </ul>
+
+</div>
 
 
 
 
-  </div></div>

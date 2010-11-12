@@ -1,0 +1,20 @@
+#header {
+  font-family: Courier, fixed-width;
+  padding: 1em;
+  width: 100%;
+  background-color: green;
+  font-size: larger;
+  border-bottom: 1px solid silver;
+  margin-bottom: 0.2em;
+}
+
+
+#fig {
+  width: 680px;
+  height: 705px;
+}
+
+div.header_category {
+  border-bottom: 1px solid silver;
+  font-weight:bold;
+}

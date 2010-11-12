@@ -1,22 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-  <title>hack!</title>
-  <%= javascript_include_tag "protovis-r3.2" %>
-  <%= stylesheet_link_tag "standard" -%>
-  
-   <style type="text/css">
-
-#fig {
-  width: 680px;
-  height: 705px;
-}
-
-    </style>
-  
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title>cha-DO!</title>
+    <%= javascript_include_tag :defaults -%>
+    <%= javascript_include_tag "protovis-r3.2" -%>
+    <%= javascript_include_tag "form_helpers" -%>
+    
+    <%= stylesheet_link_tag "standard" -%>
   </head>
   <body>
-       <%= yield -%> </!-- the html code goes into yield >
+    <div id="header">cha-DO!</div>
+    <%= yield -%> </!-- the html code goes into yield >
   </body>
 </html>
