@@ -8,9 +8,10 @@
     <%= javascript_include_tag "form_helpers" -%>
     
     <%= stylesheet_link_tag "standard" -%>
+<%= yield -%>
   </head>
   <body>
     <div id="header">cha-DO!</div>
-    <%= yield -%> </!-- the html code goes into yield >
+    <%= yield :head -%> <!-- the html code goes into yield >-->
   </body>
 </html>

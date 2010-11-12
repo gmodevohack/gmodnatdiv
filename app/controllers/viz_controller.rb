@@ -8,7 +8,7 @@ class VizController < ApplicationController
   def plot_bubble
     pieces = params[:id].split(":")
     @term = Cvterm.with_obo_id(pieces[0], pieces[1]).first
-    @associations = ActiveSupport::JSON.encode(experiment_associations_data(@term))
+    #@associations = ActiveSupport::JSON.encode(experiment_associations_data(@term))
     render :action => 'plots/plot_bubble'
   end
 
@@ -35,13 +35,13 @@ class VizController < ApplicationController
       children_rels.each do |child_rel|
         child = child_rel.child
         if (child.children.size == 0)
-          map[child.name] = experiments_for_term(child, relation)
+          map[child.name] = experiments_for_term(child, relation) + 1
         else 
           map[child.name] = experiment_associations(child, depth + 1, max_depth, relation)
         end
       end
     else
-      return experiments_for_term(term, relation)
+      return experiments_for_term(term, relation) + 1
     end
     return map
   end
