@@ -1,3 +1,24 @@
+body {
+  margin: 0;
+  display: table;
+  height: 100%;
+  width: 100%;
+  font: 14px/134% Helvetica Neue, sans-serif;
+}
+
+#center {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#fig {
+  position: relative;
+  margin: auto;
+
+  width: 50px;
+  height: 50px;
+}
+
 #header {
   font-family: Courier, fixed-width;
   padding: 1em;
@@ -6,12 +27,6 @@
   font-size: larger;
   border-bottom: 1px solid silver;
   margin-bottom: 0.2em;
-}
-
-
-#fig {
-  width: 680px;
-  height: 705px;
 }
 
 div.header_category {
