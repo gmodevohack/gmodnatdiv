@@ -16,8 +16,20 @@ class Phenotype < ActiveRecord::Base
 
   named_scope :ordered_by_number_of_cvterms, :joins => :phenotype_cvterms, :select => "phenotype.*, COUNT(phenotype_cvterm.cvterm_id) as cvterm_count", :group => Phenotype.column_names.collect{|column_name| "phenotype.#{column_name}"}.join(","), :order => "cvterm_count DESC"
 
+
+  named_scope :with_observable, lambda {|*args| {:joins => "JOIN cvterm ON observable_id = cvterm.cvterm_id", :conditions => ["cvterm.name = ?", args[0]]}}
+
+  named_scope :with_observable_like, lambda {|*args| {:joins => "JOIN cvterm ON observable_id = cvterm.cvterm_id", :conditions => ["cvterm.name like ?", args[0]]}}
+
+  named_scope :with_cvalue, lambda {|*args| {:joins => "JOIN cvterm ON cvalue_id = cvterm.cvterm_id", :conditions => ["cvterm.name = ?", args[0]]}}
+
+  named_scope :with_project_id, lambda {|*args| {:joins => "JOIN nd_experiment_phenotype USING (phenotype_id) JOIN nd_experiment_project USING (nd_experiment_id) JOIN project USING (project_id)", :conditions => ["project.id = ?", args[0]]}}
+
+  named_scope :with_project_name, lambda {|*args| {:joins => "JOIN nd_experiment_phenotype USING (phenotype_id) JOIN nd_experiment_project USING (nd_experiment_id) JOIN project USING (project_id)", :conditions => ["project.name = ?", args[0]]}}
+
+
   named_scope :limit, :limit => 100
 
-  validates_uniqueness_of :uniquename 
+#  validates_uniqueness_of :uniquename 
 
 end
