@@ -34,13 +34,12 @@ class Phenotype < ActiveRecord::Base
 
 def as_json(options = {})
   { 
-#    :observable.as_json(:only => :name)  => observable,
     :id => phenotype_id,
     :uniquename => uniquename,
-    :observable => observable.name,
-    :attribute => attr.name,
+    :observable => observable.as_json,
+    :attribute => attr.as_json,
     :value => value,
-    :cvalue => cvalue.name
+    :cvalue => cvalue.as_json
   }
 end
 

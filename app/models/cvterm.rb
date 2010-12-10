@@ -38,4 +38,13 @@ class Cvterm < ActiveRecord::Base
   set_table_name "cvterm" # habtm requires set_table_name to be underneath habtm declaration
   set_primary_key "cvterm_id"
 
+def as_json(options = {})
+  { 
+    :cv => cv.name,
+    :cv_id => dbxref.accession,
+    :name => name
+  }
+end
+
+
 end
