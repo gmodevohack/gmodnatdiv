@@ -32,4 +32,27 @@ class Phenotype < ActiveRecord::Base
 
 #  validates_uniqueness_of :uniquename 
 
+def as_json(options = {})
+  { 
+#    :observable.as_json(:only => :name)  => observable,
+    :id => phenotype_id,
+    :uniquename => uniquename,
+    :observable => observable.name,
+    :attribute => attr.name,
+    :value => value,
+    :cvalue => cvalue.name
+  }
+end
+
+#  def to_json(options={})
+#    {
+#   if options.empty?
+#     super(:only => [:uniquename, :phenotype_id, :value], :include => {:observable => {:only => :name, :include => {:dbxref => {:only => :accession} } } })
+#   else
+#     super
+#   end
+#    }
+#  end
+
+
 end
